@@ -23,8 +23,8 @@ map.on('click', (event) => {
     //add icon layer
     marker = L.marker([lat, lng], {icon}).addTo(map)
 
-    document.querySelector([name="lat"]).value = lat
-    document.querySelector([name="lng"]).value = lng
+    document.querySelector("[name=lat]").value = lat
+    document.querySelector("[name=lng]").value = lng
 })
 
 //adicionar campo de foto
@@ -52,6 +52,7 @@ function addPhotoField(){
     //adicionar o clone ao container de #images
     container.appendChild(newFieldContainer)
 }
+
 function deleteField(event){
     const span = event.currentTarget
     const fieldsContainer = document.querySelectorAll('.new-upload')
@@ -63,6 +64,7 @@ function deleteField(event){
     //deletar o campo
     span.parentNode.remove()
 }
+
 //troca sim e não
 function toggleSelect(event){
     // retirar classe .active (dos botões)
@@ -78,4 +80,18 @@ function toggleSelect(event){
 
     input.value = button.dataset.value
 
+    /*console.log(button.dataset.value)
+    console.log("---------------------")
+    console.log(input.value)
+    console.log("---------------------")
+    console.log(event)*/
+
+}
+
+function validate(event){
+    const needsLatAndLng = document.querySelector(".map-container input")
+    if(needsLatAndLng.value == ""){
+        event.preventDefault()
+        alert("Selecione um ponto no mapa")
+    }
 }

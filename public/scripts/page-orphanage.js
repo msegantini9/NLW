@@ -5,9 +5,12 @@ const options = {
     scrollWheelZoom: false,
     zoomControl: false
 }
+//get values from html
+const Lat = document.querySelector('span[data-lat]').dataset.lat
+const Lng = document.querySelector('span[data-lng]').dataset.lng
 
 //Create map
-const map = L.map('mapid', options).setView([-18.7178758,-39.8480755], 15)
+const map = L.map('mapid', options).setView([Lat, Lng], 15)
 
 //Create and add TileLayer
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map)
@@ -21,8 +24,8 @@ const icon = L.icon({
 })
 
 
-//Create and add Icon
-L.marker([-18.7178758,-39.8480755], {icon})
+//Create Marker add Icon
+L.marker([Lat, Lng], {icon})
 .addTo(map)
 
 function selectImage(event){

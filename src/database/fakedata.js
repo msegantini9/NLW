@@ -27,5 +27,5 @@ module.exports = [
         instructions:"Venha como se sentir a vontade e traga muito amor e paciência para doar.",
         opening_hours: "Horário de visitas Das 18h até 8h",
         open_on_weekends: "0"
-    }
-]
+    },
+];
